@@ -1,13 +1,16 @@
+import eslint from "@eslint/js"
 import tanstackQuery from "@tanstack/eslint-plugin-query"
 import tsparser from "@typescript-eslint/parser"
 import prettier from "eslint-plugin-prettier"
-import jsonc from "jsonc-eslint-parser"
 import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
+import jsonc from "jsonc-eslint-parser"
 import tseslint from "typescript-eslint"
 
 export default tseslint.config(
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
   { ignores: ["dist"] },
   {
     files: ["**/*.{ts,tsx}"],
@@ -19,7 +22,6 @@ export default tseslint.config(
     plugins: {
       react,
       "@tanstack/query": tanstackQuery,
-      "@typescript-eslint": tseslint,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       prettier,
@@ -45,7 +47,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
       "@tanstack/query/exhaustive-deps": "error",
       "@tanstack/query/stable-query-client": "error",
       ...reactHooks.configs.recommended.rules,

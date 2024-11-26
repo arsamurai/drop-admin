@@ -1,6 +1,8 @@
-const plugin = require("tailwindcss/plugin")
-const colors = require("tailwindcss/colors")
-const { parseColor } = require("tailwindcss/lib/util/color")
+import tailwindcssAnimate from "tailwindcss-animate"
+import tailwindcssForms from "@tailwindcss/forms"
+import colors from "tailwindcss/colors"
+import { parseColor } from "tailwindcss/lib/util/color"
+import plugin from "tailwindcss/plugin"
 
 const toRGB = value => {
   return parseColor(value).color.join(" ")
@@ -69,7 +71,8 @@ export default {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
+    tailwindcssForms,
+    tailwindcssAnimate,
     plugin(function ({ addBase }) {
       addBase({
         ":root": {

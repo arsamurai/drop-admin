@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority"
 
 export const buttonVariants = cva(
   [
-    "transition duration-200 border shadow-sm inline-flex items-center justify-center rounded-md font-medium cursor-pointer",
+    "transition duration-200 border shadow-sm inline-flex items-center justify-center rounded-md font-medium text-base py-2 px-3 cursor-pointer",
     "focus:ring-4 focus:ring-primary focus:ring-opacity-20",
     "focus-visible:outline-none",
     "[&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90",
@@ -24,14 +24,9 @@ export const buttonVariants = cva(
         dark: "bg-dark border-dark text-white",
       },
       size: {
-        default: "text-base py-2 px-3",
         lg: "text-lg py-1.5 px-4",
         sm: "text-xs py-1.5 px-2",
       },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "default",
     },
   },
 )

@@ -1,6 +1,6 @@
 import axios, { AxiosRequestHeaders, CreateAxiosDefaults } from "axios"
 
-import { UserService } from "@services/user-service"
+import { AuthService } from "@services/auth-service"
 
 import { requiredGet } from "@shared/utils/env"
 import { removeTrailingSlash } from "@shared/utils/helpers"
@@ -20,7 +20,7 @@ export const privateApi = axios.create(defaultInstanceSettings)
 
 privateApi.interceptors.request.use(
   async config => {
-    const token = UserService.getAccessToken
+    const token = AuthService.getAccessToken
 
     config.headers = {
       ...config.headers,
@@ -41,14 +41,14 @@ privateApi.interceptors.response.use(
     if (error?.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true
       try {
-        const response = await UserService.refreshTokens()
+        const response = await AuthService.refreshTokens()
 
-        UserService.setTokens(response.data)
+        AuthService.setTokens(response.data)
 
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token
         return privateApi(originalRequest)
       } catch {
-        UserService.logout(window.location.pathname)
+        AuthService.logout(window.location.pathname)
       }
     }
     return Promise.reject(error)

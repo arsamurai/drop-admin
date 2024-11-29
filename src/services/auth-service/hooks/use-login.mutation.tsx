@@ -5,23 +5,20 @@ import { ROUTES } from "@shared/constants"
 import { showToast } from "@shared/ui/toastify"
 import { isAxiosError } from "@shared/utils/error-handler"
 
-import { UserService } from "../user-service"
+import { AuthService } from "../auth-service"
 
 interface LoginMutationOptions {
   searchParams: URLSearchParams
   saveRefresh?: boolean
 }
 
-export const useLoginUserMutation = ({
-  searchParams,
-  saveRefresh = true,
-}: LoginMutationOptions) => {
+export const useLoginMutation = ({ searchParams, saveRefresh = true }: LoginMutationOptions) => {
   const navigate = useNavigate()
 
   return useMutation({
-    mutationFn: UserService.login,
+    mutationFn: AuthService.login,
     onSuccess: ({ data }) => {
-      UserService.setTokens({
+      AuthService.setTokens({
         token: data.token,
         ...(saveRefresh ? { refreshToken: data.refreshToken } : {}),
       })

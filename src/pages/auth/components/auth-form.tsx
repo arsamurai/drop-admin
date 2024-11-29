@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useSearchParams } from "react-router-dom"
 
-import { LoginSchema, loginSchema, useLoginUserMutation } from "@services/user-service"
+import { LoginSchema, loginSchema, useLoginMutation } from "@services/auth-service"
 
 import { useLocalStorage } from "@shared/hooks"
 import { Button } from "@shared/ui/button"
@@ -15,7 +15,7 @@ const AuthForm = () => {
 
   const toggleRememberMe = () => setRememberMe(prev => !prev)
 
-  const loginUser = useLoginUserMutation({
+  const loginUser = useLoginMutation({
     searchParams: params,
     saveRefresh: rememberMe,
   })

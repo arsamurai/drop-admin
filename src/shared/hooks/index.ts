@@ -1,2 +1,5 @@
 export { useGetMatches } from "./use-get-matches"
+export { useDebounce } from "./use-debounce"
+export { useBoolean } from "./use-boolean"
 export { useLocalStorage } from "./use-local-storage"
+export { useFiltersParams } from "./use-filters-params"

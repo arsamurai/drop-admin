@@ -1,4 +1,5 @@
-export interface SelectOption {
-  value: number | string
-  label: string
+export interface CustomSelectProps {
+  rounded?: boolean
+  error?: boolean
+  helpText?: string
 }

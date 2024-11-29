@@ -59,7 +59,7 @@ const Input = forwardRef((props: InputProps, ref: InputRef) => {
           </div>
         )}
       </div>
-      <p className="mt-2 text-current">{helpText}</p>
+      {helpText && <p className="mt-2 text-current">{helpText}</p>}
     </div>
   )
 })

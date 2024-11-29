@@ -21,7 +21,7 @@ const multiOptionStyles = {
 }
 const noOptionsMessageStyles = "p-2.5 rounded-md"
 const multiValueStyles =
-  "hover:bg-primary/70 bg-primary rounded-2xl items-center text-white text-sm py-1 px-2"
+  "hover:bg-primary/70 bg-primary rounded-2xl items-center text-white text-xs py-1 px-2"
 const multiValueLabelStyles = "mr-1"
 const multiValueRemoveStyles = {
   base: "hover:text-danger",

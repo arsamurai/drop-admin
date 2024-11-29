@@ -22,7 +22,7 @@ const PageSize: FC<PageSizeProps> = ({ value, options, total, onChange, classNam
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <Label>Количество:</Label>
+      <Label>Кількість:</Label>
       <Select
         name="pageSize"
         value={{ label: value, value }}

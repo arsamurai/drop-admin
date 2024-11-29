@@ -1,4 +1,4 @@
-import { AuthPage, MainPage, NotFoundPage, UsersPage } from "@pages"
+import { AuthPage, MainPage, NotFoundPage, SetUserPage, UsersPage } from "@pages"
 import { Navigate, createBrowserRouter } from "react-router-dom"
 
 import { AccessGuard } from "@features/access-guard"
@@ -23,6 +23,14 @@ export const router = createBrowserRouter([
           {
             path: ROUTES.USERS.path,
             element: <UsersPage />,
+          },
+          {
+            path: ROUTES.CREATE_USER.path,
+            element: <SetUserPage />,
+          },
+          {
+            path: ROUTES.EDIT_USER.path + "/:id",
+            element: <SetUserPage />,
           },
         ],
       },

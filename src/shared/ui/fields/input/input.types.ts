@@ -10,3 +10,8 @@ export interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
 }
 
 export type InputRef = React.ComponentPropsWithRef<"input">["ref"]
+
+export interface InputWithMaskProps extends Omit<InputProps, "value" | "onChange"> {
+  value?: string
+  onChange?: (value: string) => void
+}

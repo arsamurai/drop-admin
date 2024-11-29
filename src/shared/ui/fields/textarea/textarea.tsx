@@ -2,12 +2,7 @@ import { forwardRef } from "react"
 
 import { cn } from "@shared/utils/cn"
 
-interface TextareaProps extends React.ComponentPropsWithoutRef<"textarea"> {
-  formTextareaSize?: "sm" | "lg"
-  rounded?: boolean
-}
-
-type TextareaRef = React.ComponentPropsWithRef<"textarea">["ref"]
+import { TextareaProps, TextareaRef } from "./textarea.types"
 
 const Textarea = forwardRef((props: TextareaProps, ref: TextareaRef) => {
   const { formTextareaSize, rounded, className, ...computedProps } = props

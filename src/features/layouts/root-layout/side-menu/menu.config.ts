@@ -11,7 +11,7 @@ const findActiveMenu = (subMenu: Menu[], location: MenuLocation): boolean => {
     if (
       (location.forceActiveMenu !== undefined && item.pathname === location.forceActiveMenu) ||
       (location.forceActiveMenu === undefined &&
-        item.pathname === location.pathname + location.search)
+        (location.pathname + location.search).includes(item.pathname ?? ""))
     ) {
       match = true
     } else if (!match && item.subMenu) {
@@ -33,9 +33,9 @@ const nestedMenu = (menu: Array<Menu | string>, location: MenuLocation) => {
       }
       menuItem.active =
         (location.forceActiveMenu !== undefined &&
-          menuItem.pathname === location.forceActiveMenu) ||
+          location.forceActiveMenu.includes(menuItem.pathname ?? "")) ||
         (location.forceActiveMenu === undefined &&
-          menuItem.pathname === location.pathname + location.search) ||
+          (location.pathname + location.search).includes(menuItem.pathname ?? "")) ||
         (menuItem.subMenu && findActiveMenu(menuItem.subMenu, location))
 
       if (menuItem.subMenu) {

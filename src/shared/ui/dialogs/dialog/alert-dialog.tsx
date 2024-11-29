@@ -22,7 +22,7 @@ const AlertDialog: FC<AlertDialogProps> = ({ open, handleClose, handleOk, text }
               <Button variant="primary" onClick={handleOk}>
                 Ок
               </Button>
-              <Button onClick={handleClose}>Отмена</Button>
+              <Button onClick={handleClose}>Cancel</Button>
             </DialogFooter>
           </div>
         </div>

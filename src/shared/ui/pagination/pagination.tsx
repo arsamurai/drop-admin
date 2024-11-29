@@ -49,9 +49,9 @@ const Pagination: React.FC<PaginationProps> = ({
           })}
         </div>
         <div className="flex items-center md:hidden">
-          <PaginationItem>{currentPage}</PaginationItem>
+          <PaginationItem className="cursor-default">{currentPage}</PaginationItem>
           <span className="text-secondary-text">/</span>
-          <PaginationItem>{totalPages}</PaginationItem>
+          <PaginationItem className="cursor-default">{totalPages}</PaginationItem>
         </div>
         <PaginationNext onClick={onNext} isDisabled={currentPage === totalPages} />
       </PaginationContent>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
 
-import { checkToken } from "@services/user-service/utils/check-token"
+import { checkToken } from "@services/auth-service/utils/check-token"
 
 import { useGetMatches } from "@shared/hooks"
 

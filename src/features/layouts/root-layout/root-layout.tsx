@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
 
-import { logout } from "@services/user-service"
+import { logout } from "@services/auth-service"
 
 import { ROUTES } from "@shared/constants"
 import { Typography } from "@shared/ui/typography"

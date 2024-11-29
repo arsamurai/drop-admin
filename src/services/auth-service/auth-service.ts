@@ -2,16 +2,12 @@ import Cookies from "js-cookie"
 
 import { ROUTES } from "@shared/constants"
 
-import { privateApi, publicApi } from "../api"
-import { LoginParams, TokenType, Tokens, TokensResponse } from "./user-service.types"
+import { publicApi } from "../api"
+import { LoginParams, TokenType, Tokens, TokensResponse } from "./auth-service.types"
 
-export class UserService {
-  static getCurrentUserProfile = () => {
-    return privateApi.get("/profile/current-user")
-  }
-
+export class AuthService {
   static login = (params: LoginParams) => {
-    return publicApi.post<TokensResponse>("/admin/login", params)
+    return publicApi.post<TokensResponse>("/login", params)
   }
 
   static refreshTokens = () => {
@@ -25,7 +21,7 @@ export class UserService {
       refreshToken,
     })
 
-    return publicApi.get<TokensResponse>(`/admin/refresh-token?${params.toString()}`)
+    return publicApi.get<TokensResponse>(`/refresh-token?${params.toString()}`)
   }
 
   static get getAccessToken() {

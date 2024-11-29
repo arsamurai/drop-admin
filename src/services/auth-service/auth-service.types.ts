@@ -1,4 +1,4 @@
-import { LoginSchema } from "./user-service.validation"
+import { LoginSchema } from "./auth-service.validation"
 
 export enum Tokens {
   token = "token",

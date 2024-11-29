@@ -23,4 +23,10 @@ export const ROUTES = {
   USERS: {
     path: "/users",
   },
+  CREATE_USER: {
+    path: "/user/create",
+  },
+  EDIT_USER: {
+    path: "/user/edit",
+  },
 } satisfies Record<string, RouterParams>

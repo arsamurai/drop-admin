@@ -3,9 +3,11 @@ import { useQuery } from "@tanstack/react-query"
 import { UsersService } from "../users-service"
 import { UserEntity } from "../users-service.types"
 
+export const userQueryCacheKey = "user"
+
 export const useUserQuery = (id: number, stagedUser?: UserEntity) => {
   return useQuery({
-    queryKey: ["user", id],
+    queryKey: [userQueryCacheKey, id],
     queryFn: () => UsersService.getUser(id),
     initialData: () => {
       if (!stagedUser) {

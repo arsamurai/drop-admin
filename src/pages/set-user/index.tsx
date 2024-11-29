@@ -29,7 +29,8 @@ const SetUserPage = () => {
   const { data, isLoading } = useUserQuery(Number(id), state?.user)
 
   const pageTitle = id ? "Edit user" : " Create user"
-  const btnTitle = id ? "Edit" : "Create"
+  const btnContinueTitle = id ? "Save and continue edit" : "Create and add another"
+  const btnTitle = id ? "Save" : "Create"
 
   const methods = useForm<UserSchema>({
     resolver: zodResolver(userSchema(Number(id))),
@@ -56,7 +57,7 @@ const SetUserPage = () => {
         setError("root", { message: e.response?.data?.message })
       }
     } finally {
-      reset()
+      if (id) reset()
     }
   }
 
@@ -103,16 +104,9 @@ const SetUserPage = () => {
           {pageTitle}
         </Typography>
         <div className="flex gap-x-2">
-          {!id && (
-            <Button
-              variant="dark"
-              size="sm"
-              disabled={isSubmitting}
-              onClick={handleSubmit(onSubmit)}
-            >
-              Create and add another
-            </Button>
-          )}
+          <Button variant="dark" size="sm" disabled={isSubmitting} onClick={handleSubmit(onSubmit)}>
+            {btnContinueTitle}
+          </Button>
           <Button variant="primary" size="sm" disabled={isSubmitting} onClick={submitWithRedirect}>
             {btnTitle}
           </Button>
